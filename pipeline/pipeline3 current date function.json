@@ -1,0 +1,32 @@
+{
+	"name": "pipeline3 current date function",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "dumy",
+					"value": {
+						"value": "@concat(\nsubstring(utcnow(),0,4),'/',\nsubstring(utcnow(),5,2),'/',\nsubstring(utcnow(),8,2)\n)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"dumy": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-09T21:18:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,31 @@
+{
+	"name": "SqlServerTable4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "link_service_july_24_sqlserver",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SinkSchema": {
+				"type": "string"
+			},
+			"SinkTable": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().SinkSchema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().SinkTable",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

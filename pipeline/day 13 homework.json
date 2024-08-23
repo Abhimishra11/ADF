@@ -1,0 +1,107 @@
+{
+	"name": "day 13 homework",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('Table_input')",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"sqlReaderQuery": {
+										"value": "@concat(\n    'select ',item().Column,' from ',item().Schema,'.',item().Table\n)",
+										"type": "Expression"
+									},
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SqlServerTable3",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DelimitedText4",
+									"type": "DatasetReference",
+									"parameters": {
+										"Schema1": {
+											"value": "@item().Schema",
+											"type": "Expression"
+										},
+										"Table1": {
+											"value": "@item().Table",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"Table_input": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"Schema": "dbo",
+						"Table": "EMP",
+						"Column": "EMPNO,ENAME,JOB,MGR"
+					},
+					{
+						"Schema": "dbo",
+						"Table": "DEPT",
+						"Column": "DEPTNO,DNAME"
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-09T22:09:43Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

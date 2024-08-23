@@ -1,0 +1,65 @@
+{
+	"name": "9 Execute Pipline Activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Calling Area Calculation Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "3 Area calculation",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "8 1Paramiterized Area calculation",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"param_length": 20,
+						"param_breadth": 20
+					}
+				}
+			},
+			{
+				"name": "Execute Pipeline2",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "8 3parameterized piplineand dataset",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"p_filename1": "customers-100.csv"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-08-08T04:24:26Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

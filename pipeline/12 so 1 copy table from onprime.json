@@ -1,0 +1,119 @@
+{
+	"name": "12 so 1 copy table from onprime",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('Table_input')",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SqlServerTable2",
+									"type": "DatasetReference",
+									"parameters": {
+										"Schema": {
+											"value": "@item().Schema",
+											"type": "Expression"
+										},
+										"Table": {
+											"value": "@item().Table",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DelimitedText4",
+									"type": "DatasetReference",
+									"parameters": {
+										"Schema1": {
+											"value": "@item().Schema",
+											"type": "Expression"
+										},
+										"Table1": {
+											"value": "@item().Table",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"Table_input": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"Schema": "SalesLT",
+						"Table": "Address"
+					},
+					{
+						"Schema": "SalesLT",
+						"Table": "Customer"
+					},
+					{
+						"Schema": "SalesLT",
+						"Table": "CustomerAddress"
+					},
+					{
+						"Schema": "SalesLT",
+						"Table": "Product"
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-09T22:42:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

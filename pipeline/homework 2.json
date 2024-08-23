@@ -1,0 +1,40 @@
+{
+	"name": "homework 2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "c",
+					"value": {
+						"value": "@mul(add(variables('a'),variables('b')),add(variables('a'),variables('b')))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"a": {
+				"type": "Integer",
+				"defaultValue": 5
+			},
+			"b": {
+				"type": "Integer",
+				"defaultValue": 5
+			},
+			"c": {
+				"type": "Integer"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-01T00:45:31Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

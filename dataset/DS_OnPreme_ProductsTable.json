@@ -1,0 +1,17 @@
+{
+	"name": "DS_OnPreme_ProductsTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_OnPremes_SqlServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Project",
+			"table": "Products"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

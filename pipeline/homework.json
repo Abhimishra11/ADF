@@ -1,0 +1,102 @@
+{
+	"name": "homework",
+	"properties": {
+		"activities": [
+			{
+				"name": "v1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v1",
+					"value": "Azure"
+				}
+			},
+			{
+				"name": "v2",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v2",
+					"value": "Data"
+				}
+			},
+			{
+				"name": "v3",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v3",
+					"value": "Engineering"
+				}
+			},
+			{
+				"name": "course",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "v1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "v2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "v3",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "course",
+					"value": {
+						"value": "@concat(variables('v1'),' ',variables('v2'),' ' ,variables('v3'))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"v1": {
+				"type": "String"
+			},
+			"v2": {
+				"type": "String"
+			},
+			"v3": {
+				"type": "String"
+			},
+			"course": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-01T00:45:31Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
