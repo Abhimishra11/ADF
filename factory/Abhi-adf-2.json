@@ -1,0 +1,9 @@
+{
+	"name": "Abhi-adf-2",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "45bc9e0f-03bb-4821-a970-00dd4d9ff036",
+		"tenantId": "3365f905-f928-47ab-9f8e-39a27c5e24b8"
+	}
+}
