@@ -518,7 +518,7 @@
 										"source": {
 											"type": "SqlServerSource",
 											"sqlReaderQuery": {
-												"value": "@concat('select * from',item().TableName,' where ModifiedDate> ''',activity('WatermarkDate').output.value[0].WatermarkDateTime,''' and ModifiedDate <= ''',activity('Max Modified Date from Tables').output.value[0].Max_Modified_Date,'''')",
+												"value": "@concat('select * from ',item().TableName,' where ModifiedDate> ''',activity('WatermarkDate').output.value[0].WatermarkDateTime,''' and ModifiedDate <= ''',activity('Max Modified Date from Tables').output.value[0].Max_Modified_Date,'''')",
 												"type": "Expression"
 											},
 											"queryTimeout": "02:00:00",
@@ -600,7 +600,7 @@
 											{
 												"type": "Query",
 												"text": {
-													"value": "@concat('update Project.WatermarkTable set\nWatermarkDateTime =''',activity('Max Modified Date from Tables').output.value[0].Max_Modified_Date,''' Where TableName = ',item().TableName)",
+													"value": "@concat('update Project.WatermarkTable set\nWatermarkDateTime =''',activity('Max Modified Date from Tables').output.value[0].Max_Modified_Date,''' Where TableName = ''',item().TableName,'''')",
 													"type": "Expression"
 												}
 											}
