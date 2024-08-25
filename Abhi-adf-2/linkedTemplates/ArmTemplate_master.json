@@ -15,9 +15,25 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'link_service_july_24_sqlserver'"
 		},
+		"link_service_old_sqlserver_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'link_service_old_sqlserver'"
+		},
 		"ls_OnPremes_SqlServer_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_OnPremes_SqlServer'"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "abhi-sql-server.database.windows.net"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "abhi-sqldb"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "abhi"
 		},
 		"containerUri": {
 			"type": "string",
@@ -51,6 +67,18 @@
 					},
 					"link_service_july_24_sqlserver_connectionString": {
 						"value": "[parameters('link_service_july_24_sqlserver_connectionString')]"
+					},
+					"link_service_old_sqlserver_password": {
+						"value": "[parameters('link_service_old_sqlserver_password')]"
+					},
+					"link_service_old_sqlserver_properties_typeProperties_server": {
+						"value": "[parameters('link_service_old_sqlserver_properties_typeProperties_server')]"
+					},
+					"link_service_old_sqlserver_properties_typeProperties_database": {
+						"value": "[parameters('link_service_old_sqlserver_properties_typeProperties_database')]"
+					},
+					"link_service_old_sqlserver_properties_typeProperties_userName": {
+						"value": "[parameters('link_service_old_sqlserver_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -69,9 +97,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"ls_OnPremes_SqlServer_connectionString": {
-						"value": "[parameters('ls_OnPremes_SqlServer_connectionString')]"
 					}
 				}
 			},
@@ -92,6 +117,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"ls_OnPremes_SqlServer_connectionString": {
+						"value": "[parameters('ls_OnPremes_SqlServer_connectionString')]"
 					}
 				}
 			},

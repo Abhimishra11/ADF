@@ -11,8 +11,20 @@
 		"link_service_july_24_sqlserver_connectionString": {
 			"value": ""
 		},
+		"link_service_old_sqlserver_password": {
+			"value": ""
+		},
 		"ls_OnPremes_SqlServer_connectionString": {
 			"value": ""
+		},
+		"link_service_old_sqlserver_properties_typeProperties_server": {
+			"value": "abhi-sql-server.database.windows.net"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_database": {
+			"value": "abhi-sqldb"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_userName": {
+			"value": "abhi"
 		}
 	}
 }

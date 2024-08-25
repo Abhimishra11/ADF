@@ -15,9 +15,25 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'link_service_july_24_sqlserver'"
 		},
+		"link_service_old_sqlserver_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'link_service_old_sqlserver'"
+		},
 		"ls_OnPremes_SqlServer_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_OnPremes_SqlServer'"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "abhi-sql-server.database.windows.net"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "abhi-sqldb"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "abhi"
 		}
 	},
 	"variables": {
@@ -2501,11 +2517,18 @@
 					{
 						"name": "ForEach1",
 						"type": "ForEach",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "fetch table name",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@activity('fetch table name ').output.value",
+								"value": "@activity('fetch table name').output.values",
 								"type": "Expression"
 							},
 							"activities": [
@@ -3225,7 +3248,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": {
-						"value": "@split(dataset().tablename,'.')[0]",
+						"value": "@split(dataset().tablename,'.')[0]\n",
 						"type": "Expression"
 					},
 					"table": {
@@ -4194,6 +4217,28 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/link_service_old_sqlserver')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('link_service_old_sqlserver_properties_typeProperties_server')]",
+					"database": "[parameters('link_service_old_sqlserver_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('link_service_old_sqlserver_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('link_service_old_sqlserver_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ls_OnPremes_SqlServer')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -4214,6 +4259,16 @@
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/IR-OnPrime')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/IR-OnPrimes2')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
 			"properties": {
