@@ -1,0 +1,30 @@
+{
+	"name": "DS_OnPrimes_AllTables",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "link_service_OnPrimes_new",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SchemaName": {
+				"type": "string"
+			},
+			"TableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@split(dataset().SchemaName,'.')[0]",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@split(dataset().TableName, '.')[1]",
+				"type": "Expression"
+			}
+		}
+	}
+}
