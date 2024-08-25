@@ -1970,7 +1970,7 @@
 										"sink": {
 											"type": "SqlServerSink",
 											"preCopyScript": {
-												"value": "@concat('Truncare table ',item().TableName)",
+												"value": "@concat('Truncate table ',item().TableName)",
 												"type": "Expression"
 											},
 											"writeBehavior": "insert",
@@ -2043,7 +2043,7 @@
 											{
 												"type": "Query",
 												"text": {
-													"value": "@concat('update Project.WatermarkTable set\nWatermarkDateTime =',activity('Max Modified Date from Tables').output.value[0].Max_Modified_Date,' Where TableName = ',item().TableName)",
+													"value": "@concat('update Project.WatermarkTable set\nWatermarkDateTime =''',activity('Max Modified Date from Tables').output.value[0].Max_Modified_Date,''' Where TableName = ',item().TableName)",
 													"type": "Expression"
 												}
 											}
