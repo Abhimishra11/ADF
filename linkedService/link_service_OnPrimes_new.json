@@ -1,0 +1,16 @@
+{
+	"name": "link_service_OnPrimes_new",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=LAPTOP-NOAV0U4S\\SQLEXPRESS;initial catalog=Abhishek;user id=sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmN2I4NTJlMy0zMjQzLTRmNTAtODRmZS02YTRhZjI1ZGEyOGUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IR-OnPrimes2",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
