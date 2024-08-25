@@ -15,7 +15,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": {
-				"value": "@split(dataset().tablename,'.')[0]",
+				"value": "@split(dataset().tablename,'.')[0]\n",
 				"type": "Expression"
 			},
 			"table": {
