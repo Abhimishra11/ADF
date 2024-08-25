@@ -1,0 +1,16 @@
+{
+	"name": "ds_oldsqlserver",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "link_service_old_sqlserver",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Project",
+			"table": "Products"
+		}
+	}
+}
