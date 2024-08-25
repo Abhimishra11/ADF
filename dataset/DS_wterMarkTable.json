@@ -1,0 +1,32 @@
+{
+	"name": "DS_wterMarkTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "link_service_old_sqlserver",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TableName",
+				"type": "varchar"
+			},
+			{
+				"name": "WatermarkDateTime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "Project",
+			"table": "WatermarkTable"
+		}
+	}
+}

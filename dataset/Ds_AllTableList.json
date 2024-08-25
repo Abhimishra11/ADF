@@ -1,0 +1,26 @@
+{
+	"name": "Ds_AllTableList",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "link_service_old_sqlserver",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "TableName",
+				"type": "varchar"
+			},
+			{
+				"name": "flag",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "Project",
+			"table": "TableList"
+		}
+	}
+}
