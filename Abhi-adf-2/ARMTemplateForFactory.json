@@ -1812,7 +1812,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Incremental Load fo Multiple Table')]",
+			"name": "[concat(parameters('factoryName'), '/Incremental Load for Multiple Table')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1933,7 +1933,7 @@
 									}
 								},
 								{
-									"name": "Copy data1",
+									"name": "Migrating Data from OnPrimes to Cloud",
 									"type": "Copy",
 									"dependsOn": [
 										{
@@ -2020,7 +2020,7 @@
 									"type": "Script",
 									"dependsOn": [
 										{
-											"activity": "Copy data1",
+											"activity": "Migrating Data from OnPrimes to Cloud",
 											"dependencyConditions": [
 												"Succeeded"
 											]
