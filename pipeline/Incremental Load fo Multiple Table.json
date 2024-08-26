@@ -116,7 +116,7 @@
 							}
 						},
 						{
-							"name": "Copy data1",
+							"name": "Migrating Data from OnPrimes to Cloud",
 							"type": "Copy",
 							"dependsOn": [
 								{
@@ -203,7 +203,7 @@
 							"type": "Script",
 							"dependsOn": [
 								{
-									"activity": "Copy data1",
+									"activity": "Migrating Data from OnPrimes to Cloud",
 									"dependencyConditions": [
 										"Succeeded"
 									]
