@@ -1,0 +1,25 @@
+{
+	"name": "SqlServerTable13",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "link_service_OnPrimes_new",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Email_ID",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "Project",
+			"table": "EmailNotification"
+		}
+	}
+}
