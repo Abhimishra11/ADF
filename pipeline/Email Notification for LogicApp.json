@@ -1,0 +1,30 @@
+{
+	"name": "Email Notification for LogicApp",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-01.centralindia.logic.azure.com:443/workflows/aeddfcc9befc4959acb9693fa4ef84d3/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=yLR5p8F_x-STamPpgng-3TXsEpp4ULjVKUtilsGdYYg",
+					"body": {
+						"To": "abhishek19842@gmail.com",
+						"Subject": "This is Test Email",
+						"Body": "This is Dummy Email to check LogicApp"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
