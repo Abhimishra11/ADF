@@ -4699,31 +4699,6 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Web1",
-						"type": "WebActivity",
-						"state": "Inactive",
-						"onInactiveMarkAs": "Succeeded",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"method": "POST",
-							"headers": {},
-							"url": "https://prod-01.centralindia.logic.azure.com:443/workflows/aeddfcc9befc4959acb9693fa4ef84d3/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=yLR5p8F_x-STamPpgng-3TXsEpp4ULjVKUtilsGdYYg",
-							"body": {
-								"To": "abhishek19842@gmail.com",
-								"Subject": "This is Test Email",
-								"Body": "This is Dummy Email to check LogicApp Attempt5"
-							}
-						}
-					},
-					{
 						"name": "Lookup1",
 						"type": "Lookup",
 						"dependsOn": [],
@@ -4738,6 +4713,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "SqlServerSource",
+								"sqlReaderQuery": "select * from Project.EmailNotification",
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
@@ -4785,7 +4761,7 @@
 										"headers": {},
 										"url": "https://prod-01.centralindia.logic.azure.com:443/workflows/aeddfcc9befc4959acb9693fa4ef84d3/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=yLR5p8F_x-STamPpgng-3TXsEpp4ULjVKUtilsGdYYg",
 										"body": {
-											"value": "@concat('{\"To\":\"',item().Email_ID,''',','\"Subject\":\"This is Test Email\",\"Body\":\",','Hi',item().Name,',''This is Dummy Email to check LogicApp Attempt5\"')\n\n\n\n",
+											"value": "{\"To\":\"@{item().Email_ID}\",\"Subject\":\"This is Test Email\",\"Body\":\" Hi @{item().Name},<br><br>This is Dummy Email to check LogicApp Attempt5\"}",
 											"type": "Expression"
 										}
 									}
