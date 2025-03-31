@@ -1,0 +1,9 @@
+{
+	"name": "abhi-adf123",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ffac6a0c-00c2-4ac7-b3fa-2d112ba8376f",
+		"tenantId": "4224c72d-7160-4182-a8ab-745fc1672a93"
+	}
+}
