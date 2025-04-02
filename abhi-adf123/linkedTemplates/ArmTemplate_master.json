@@ -1,0 +1,158 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "abhi-adf123"
+		},
+		"link_service_OnPrimes_new_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'link_service_OnPrimes_new'"
+		},
+		"link_service_jul_24_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'link_service_jul_24_blob'"
+		},
+		"link_service_july_24_sqlserver_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'link_service_july_24_sqlserver'"
+		},
+		"link_service_old_sqlserver_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'link_service_old_sqlserver'"
+		},
+		"ls_OnPremes_SqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_OnPremes_SqlServer'"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "abhi-sql-server.database.windows.net"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "abhi-sqldb"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "abhi"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "abhi-adf123_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"link_service_jul_24_blob_connectionString": {
+						"value": "[parameters('link_service_jul_24_blob_connectionString')]"
+					},
+					"link_service_july_24_sqlserver_connectionString": {
+						"value": "[parameters('link_service_july_24_sqlserver_connectionString')]"
+					},
+					"link_service_old_sqlserver_password": {
+						"value": "[parameters('link_service_old_sqlserver_password')]"
+					},
+					"link_service_old_sqlserver_properties_typeProperties_server": {
+						"value": "[parameters('link_service_old_sqlserver_properties_typeProperties_server')]"
+					},
+					"link_service_old_sqlserver_properties_typeProperties_database": {
+						"value": "[parameters('link_service_old_sqlserver_properties_typeProperties_database')]"
+					},
+					"link_service_old_sqlserver_properties_typeProperties_userName": {
+						"value": "[parameters('link_service_old_sqlserver_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "abhi-adf123_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'abhi-adf123_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "abhi-adf123_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"link_service_OnPrimes_new_connectionString": {
+						"value": "[parameters('link_service_OnPrimes_new_connectionString')]"
+					},
+					"ls_OnPremes_SqlServer_connectionString": {
+						"value": "[parameters('ls_OnPremes_SqlServer_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'abhi-adf123_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "abhi-adf123_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'abhi-adf123_ArmTemplate_2')]"
+			]
+		}
+	]
+}

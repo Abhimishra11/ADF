@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "abhi-adf123"
+		},
+		"link_service_OnPrimes_new_connectionString": {
+			"value": ""
+		},
+		"link_service_jul_24_blob_connectionString": {
+			"value": ""
+		},
+		"link_service_july_24_sqlserver_connectionString": {
+			"value": ""
+		},
+		"link_service_old_sqlserver_password": {
+			"value": ""
+		},
+		"ls_OnPremes_SqlServer_connectionString": {
+			"value": ""
+		},
+		"link_service_old_sqlserver_properties_typeProperties_server": {
+			"value": "abhi-sql-server.database.windows.net"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_database": {
+			"value": "abhi-sqldb"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_userName": {
+			"value": "abhi"
+		}
+	}
+}
