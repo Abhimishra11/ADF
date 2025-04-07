@@ -1,26 +1,23 @@
 {
-	"name": "4 Apend variable Activity",
+	"name": "pipeline4",
 	"properties": {
 		"activities": [
 			{
-				"name": "Append 90 to mark",
+				"name": "Append variable1",
 				"type": "AppendVariable",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "Marks",
-					"value": {
-						"value": "@int(99)",
-						"type": "Expression"
-					}
+					"variableName": "list",
+					"value": "61"
 				}
 			},
 			{
-				"name": "Copy marks to temp",
+				"name": "Set variable1",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
-						"activity": "Append 90 to mark",
+						"activity": "Append variable1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -34,29 +31,28 @@
 				"typeProperties": {
 					"variableName": "temp",
 					"value": {
-						"value": "@variables('Marks')",
+						"value": "@variables('list')",
 						"type": "Expression"
 					}
 				}
 			}
 		],
 		"variables": {
-			"Marks": {
+			"list": {
 				"type": "Array",
 				"defaultValue": [
-					89,
-					56,
-					78,
-					40
+					11,
+					21,
+					31,
+					41,
+					51
 				]
 			},
-			"Temp": {
+			"temp": {
 				"type": "Array",
 				"defaultValue": []
 			}
 		},
-		"annotations": [],
-		"lastPublishTime": "2024-08-01T00:45:31Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+		"annotations": []
+	}
 }
