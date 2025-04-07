@@ -9,10 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "list",
-					"value": {
-						"value": "@int(61)",
-						"type": "Expression"
-					}
+					"value": "61"
 				}
 			},
 			{
