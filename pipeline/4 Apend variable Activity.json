@@ -10,7 +10,7 @@
 				"typeProperties": {
 					"variableName": "Marks",
 					"value": {
-						"value": "@int(99)",
+						"value": "@pipeline().parameters.p_appent_value",
 						"type": "Expression"
 					}
 				}
@@ -40,6 +40,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"p_appent_value": {
+				"type": "int"
+			}
+		},
 		"variables": {
 			"Marks": {
 				"type": "Array",
