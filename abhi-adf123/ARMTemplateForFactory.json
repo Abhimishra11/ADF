@@ -1245,7 +1245,7 @@
 						"typeProperties": {
 							"variableName": "Marks",
 							"value": {
-								"value": "@int(99)",
+								"value": "@pipeline().parameters.p_appent_value",
 								"type": "Expression"
 							}
 						}
@@ -1277,6 +1277,11 @@
 				],
 				"policy": {
 					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"p_appent_value": {
+						"type": "int"
+					}
 				},
 				"variables": {
 					"Marks": {
@@ -3048,6 +3053,70 @@
 				"[concat(variables('factoryId'), '/datasets/DelimitedText9')]",
 				"[concat(variables('factoryId'), '/datasets/DelimitedText10')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline5')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Append variable1",
+						"type": "AppendVariable",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "marks",
+							"value": "99"
+						}
+					},
+					{
+						"name": "Set variable1",
+						"type": "SetVariable",
+						"dependsOn": [
+							{
+								"activity": "Append variable1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "temp",
+							"value": {
+								"value": "@variables('marks')",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"variables": {
+					"marks": {
+						"type": "Array",
+						"defaultValue": [
+							11,
+							22,
+							33,
+							44,
+							55
+						]
+					},
+					"temp": {
+						"type": "Array",
+						"defaultValue": []
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS_CloudTables_sqlserver')]",
