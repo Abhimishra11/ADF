@@ -1,9 +1,9 @@
 {
-	"name": "pipeline6",
+	"name": "connecting To OnPrime",
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
+				"name": "fetching table from OnPrime database",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
