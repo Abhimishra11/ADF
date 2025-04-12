@@ -35,6 +35,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_OnPremes_SqlServer'"
 		},
+		"LS_NEW_OnPrimes_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_NEW_OnPrimes'"
+		},
 		"link_service_old_sqlserver_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "abhi-sql-server.database.windows.net"
@@ -141,6 +145,9 @@
 					},
 					"ls_OnPremes_SqlServer_connectionString": {
 						"value": "[parameters('ls_OnPremes_SqlServer_connectionString')]"
+					},
+					"LS_NEW_OnPrimes_connectionString": {
+						"value": "[parameters('LS_NEW_OnPrimes_connectionString')]"
 					}
 				}
 			},
@@ -166,6 +173,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'abhi-adf123_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "abhi-adf123_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'abhi-adf123_ArmTemplate_3')]"
 			]
 		}
 	]

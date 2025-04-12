@@ -26,6 +26,9 @@
 		"ls_OnPremes_SqlServer_connectionString": {
 			"value": ""
 		},
+		"LS_NEW_OnPrimes_connectionString": {
+			"value": ""
+		},
 		"link_service_old_sqlserver_properties_typeProperties_server": {
 			"value": "abhi-sql-server.database.windows.net"
 		},
