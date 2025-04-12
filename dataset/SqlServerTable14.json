@@ -1,0 +1,25 @@
+{
+	"name": "SqlServerTable14",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_NEW_OnPrimes",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Email_ID",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "EMP"
+		}
+	}
+}
