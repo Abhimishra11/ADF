@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
 		},
+		"LS_NEW_OnPrimes_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_NEW_OnPrimes'"
+		},
 		"link_service_OnPrimes_new_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'link_service_OnPrimes_new'"
@@ -34,10 +38,6 @@
 		"ls_OnPremes_SqlServer_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_OnPremes_SqlServer'"
-		},
-		"LS_NEW_OnPrimes_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_NEW_OnPrimes'"
 		},
 		"link_service_old_sqlserver_properties_typeProperties_server": {
 			"type": "string",
@@ -140,14 +140,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"LS_NEW_OnPrimes_connectionString": {
+						"value": "[parameters('LS_NEW_OnPrimes_connectionString')]"
+					},
 					"link_service_OnPrimes_new_connectionString": {
 						"value": "[parameters('link_service_OnPrimes_new_connectionString')]"
 					},
 					"ls_OnPremes_SqlServer_connectionString": {
 						"value": "[parameters('ls_OnPremes_SqlServer_connectionString')]"
-					},
-					"LS_NEW_OnPrimes_connectionString": {
-						"value": "[parameters('LS_NEW_OnPrimes_connectionString')]"
 					}
 				}
 			},
