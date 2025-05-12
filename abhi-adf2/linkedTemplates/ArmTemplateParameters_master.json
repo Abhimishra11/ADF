@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "abhi-adf2"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"LS_NEW_OnPrimes_connectionString": {
+			"value": ""
+		},
+		"LS_SQL_Server_Cloud_connectionString": {
+			"value": "integrated security=False;Data Source=abhi-sql-server.database.windows.net;Initial Catalog=abhi-db;User ID=abhishek"
+		},
+		"link_service_OnPrimes_new_connectionString": {
+			"value": ""
+		},
+		"link_service_jul_24_blob_connectionString": {
+			"value": ""
+		},
+		"link_service_july_24_sqlserver_connectionString": {
+			"value": ""
+		},
+		"link_service_old_sqlserver_password": {
+			"value": ""
+		},
+		"ls_OnPremes_SqlServer_connectionString": {
+			"value": ""
+		},
+		"link_service_old_sqlserver_properties_typeProperties_server": {
+			"value": "abhi-sql-server.database.windows.net"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_database": {
+			"value": "abhi-sqldb"
+		},
+		"link_service_old_sqlserver_properties_typeProperties_userName": {
+			"value": "abhi"
+		},
+		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://Abhi-Key-Vault3.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
