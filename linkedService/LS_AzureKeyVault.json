@@ -1,0 +1,10 @@
+{
+	"name": "LS_AzureKeyVault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://Abhi-Key-Vault3.vault.azure.net/"
+		}
+	}
+}
