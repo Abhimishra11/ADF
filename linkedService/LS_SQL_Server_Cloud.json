@@ -8,7 +8,7 @@
 			"password": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
-					"referenceName": "AzureKeyVault1",
+					"referenceName": "LS_AzureKeyVault",
 					"type": "LinkedServiceReference"
 				},
 				"secretName": "db-pass"
