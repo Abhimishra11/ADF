@@ -1,12 +1,19 @@
 {
 	"name": "LS_SQL_Server_Cloud",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=False;data source=abhi-sql-server.database.windows.net;initial catalog=abhi-db;user id=abhishek",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDc5QjEyRkQxLTdFQTMtNDYyMi05MTVELUUzMzAxNzM0OTYyM18xYjUyYTAzMy1lODU1LTRhZTYtOGNkMi02ZDkxNDNhZjYwMDIiDQp9"
+			"connectionString": "integrated security=False;Data Source=abhi-sql-server.database.windows.net;Initial Catalog=abhi-db;User ID=abhishek",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "db-pass"
+			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
