@@ -106,7 +106,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"F_name": {
-											"value": "@concat(item(),'.csv')",
+											"value": "@concat(item().TableName,'.csv')",
 											"type": "Expression"
 										}
 									}
