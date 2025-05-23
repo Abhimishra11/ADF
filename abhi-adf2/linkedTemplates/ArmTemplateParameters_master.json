@@ -11,6 +11,9 @@
 		"AzureBlobStorage2_connectionString": {
 			"value": ""
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"LS_NEW_OnPrimes_connectionString": {
 			"value": ""
 		},
@@ -32,6 +35,12 @@
 		"ls_OnPremes_SqlServer_connectionString": {
 			"value": ""
 		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://abhidatalake1.dfs.core.windows.net/"
+		},
+		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://Abhi-Key-Vault3.vault.azure.net/"
+		},
 		"link_service_old_sqlserver_properties_typeProperties_server": {
 			"value": "abhi-sql-server.database.windows.net"
 		},
@@ -40,9 +49,6 @@
 		},
 		"link_service_old_sqlserver_properties_typeProperties_userName": {
 			"value": "abhi"
-		},
-		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
-			"value": "https://Abhi-Key-Vault3.vault.azure.net/"
 		},
 		"containerUri": {
 			"value": ""

@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
 		"LS_NEW_OnPrimes_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_NEW_OnPrimes'"
@@ -44,6 +48,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_OnPremes_SqlServer'"
 		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://abhidatalake1.dfs.core.windows.net/"
+		},
+		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://Abhi-Key-Vault3.vault.azure.net/"
+		},
 		"link_service_old_sqlserver_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "abhi-sql-server.database.windows.net"
@@ -55,10 +67,6 @@
 		"link_service_old_sqlserver_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "abhi"
-		},
-		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://Abhi-Key-Vault3.vault.azure.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -93,6 +101,9 @@
 					"AzureBlobStorage2_connectionString": {
 						"value": "[parameters('AzureBlobStorage2_connectionString')]"
 					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
 					"link_service_jul_24_blob_connectionString": {
 						"value": "[parameters('link_service_jul_24_blob_connectionString')]"
 					},
@@ -102,6 +113,12 @@
 					"link_service_old_sqlserver_password": {
 						"value": "[parameters('link_service_old_sqlserver_password')]"
 					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_AzureKeyVault_properties_typeProperties_baseUrl')]"
+					},
 					"link_service_old_sqlserver_properties_typeProperties_server": {
 						"value": "[parameters('link_service_old_sqlserver_properties_typeProperties_server')]"
 					},
@@ -110,9 +127,6 @@
 					},
 					"link_service_old_sqlserver_properties_typeProperties_userName": {
 						"value": "[parameters('link_service_old_sqlserver_properties_typeProperties_userName')]"
-					},
-					"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
-						"value": "[parameters('LS_AzureKeyVault_properties_typeProperties_baseUrl')]"
 					}
 				}
 			},
@@ -154,12 +168,6 @@
 					},
 					"LS_NEW_OnPrimes_connectionString": {
 						"value": "[parameters('LS_NEW_OnPrimes_connectionString')]"
-					},
-					"LS_SQL_Server_Cloud_connectionString": {
-						"value": "[parameters('LS_SQL_Server_Cloud_connectionString')]"
-					},
-					"link_service_OnPrimes_new_connectionString": {
-						"value": "[parameters('link_service_OnPrimes_new_connectionString')]"
 					}
 				}
 			},
@@ -180,6 +188,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LS_SQL_Server_Cloud_connectionString": {
+						"value": "[parameters('LS_SQL_Server_Cloud_connectionString')]"
+					},
+					"link_service_OnPrimes_new_connectionString": {
+						"value": "[parameters('link_service_OnPrimes_new_connectionString')]"
 					},
 					"ls_OnPremes_SqlServer_connectionString": {
 						"value": "[parameters('ls_OnPremes_SqlServer_connectionString')]"
