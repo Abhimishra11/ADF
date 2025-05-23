@@ -1338,11 +1338,11 @@
 											"type": "DatasetReference",
 											"parameters": {
 												"schema_name": {
-													"value": "@split(item().name,'.' )[0]",
+													"value": "@split(item().TableName,'.' )[0]",
 													"type": "Expression"
 												},
 												"Table_name": {
-													"value": "@split(item().name,'.' )[1]",
+													"value": "@split(item().TableName,'.' )[1]",
 													"type": "Expression"
 												}
 											}
@@ -1354,7 +1354,7 @@
 											"type": "DatasetReference",
 											"parameters": {
 												"F_name": {
-													"value": "@concat(item(),'.csv')",
+													"value": "@concat(item().TableName,'.csv')",
 													"type": "Expression"
 												}
 											}
@@ -1389,7 +1389,7 @@
 											{
 												"type": "Query",
 												"text": {
-													"value": "insert into dbo.FailTable values('@{item().name}')",
+													"value": "insert into dbo.FailTable values('@{item().TableName}')",
 													"type": "Expression"
 												}
 											}
