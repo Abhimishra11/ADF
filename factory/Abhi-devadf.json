@@ -1,0 +1,17 @@
+{
+	"name": "Abhi-devadf",
+	"properties": {
+		"globalParameters": {
+			"dbname": {
+				"type": "string",
+				"value": "adc"
+			}
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b1fd61ed-4a42-4706-8855-318ef4fde36b",
+		"tenantId": "3365f905-f928-47ab-9f8e-39a27c5e24b8"
+	}
+}
